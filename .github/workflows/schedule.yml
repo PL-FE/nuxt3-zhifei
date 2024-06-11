@@ -37,8 +37,8 @@ jobs:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
-        source: ./.output
-        target: /www/wwwroot/nuxt-zhifei.pl-fe.cn/
+        source: ./.output/*
+        target: /www/wwwroot/nuxt-zhifei.pl-fe.cn/output
         rm: true
 
     - name: ssh key passphrase
@@ -49,4 +49,4 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         
         script: |
-          cd /www/wwwroot/nuxt-zhifei.pl-fe.cn/.output
+          cd /www/wwwroot/nuxt-zhifei.pl-fe.cn/output/.output
