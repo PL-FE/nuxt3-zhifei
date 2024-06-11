@@ -31,7 +31,7 @@ jobs:
       run: pwd
 
     - name: Build2ls
-      run: ls
+      run: ls -a
 
     - name: Deploy to server
       uses: appleboy/ssh-action@master
