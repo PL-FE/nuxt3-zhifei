@@ -27,6 +27,9 @@ jobs:
     - name: Build
       run: pnpm run build
 
+    - name: Set permissions for a directory
+      run: chmod -R 777 /home/runner/work/nuxt3-zhifei/nuxt3-zhifei/public
+
     - name: Debug information
       run: |
         echo "Current working directory: $(pwd)"
