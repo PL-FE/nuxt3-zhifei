@@ -27,11 +27,10 @@ jobs:
     - name: Build
       run: pnpm run build
 
-    - name: Build2
-      run: pwd
-
-    - name: Build2ls
-      run: ls -a
+      - name: Debug information
+      run: |
+        echo "Current working directory: $(pwd)"
+        ls -l /home/runner/work/nuxt3-zhifei/nuxt3-zhifei/public
 
     - name: Deploy to server
       uses: appleboy/ssh-action@master
