@@ -33,8 +33,10 @@ jobs:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
+        
         script: |
+        将打包 后的output.目录全部复制到服务器的/www/wwwroot/nuxt-zhifei.pl-fe.cn目录下
           cd /www/wwwroot/nuxt-zhifei.pl-fe.cn
           rm -rf *
-          scp -r .output/* .
+          scp -r ./ .
           pm2 restart your-app-name
