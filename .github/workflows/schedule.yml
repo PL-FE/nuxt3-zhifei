@@ -37,7 +37,7 @@ jobs:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
-        source: ./.output/*
+        source: "./.output/*,./ecosystem.config.js"
         target: /www/wwwroot/nuxt-zhifei.pl-fe.cn/output
         rm: true
 
@@ -49,4 +49,5 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         
         script: |
-          cd /www/wwwroot/nuxt-zhifei.pl-fe.cn/output/.output
+          cd /www/wwwroot/nuxt-zhifei.pl-fe.cn/output
+          pm2 start ecosystem.config.js
