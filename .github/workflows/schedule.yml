@@ -43,5 +43,5 @@ jobs:
         script: |
           cd /www/wwwroot/nuxt-zhifei.pl-fe.cn
           rm -rf *     
-          scp -r .output .
+          scp -r public .
           pm2 restart your-app-name
