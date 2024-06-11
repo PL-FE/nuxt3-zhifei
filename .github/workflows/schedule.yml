@@ -25,25 +25,13 @@ jobs:
       run: pnpm install
 
     - name: Build
-      run: pnpm run build
-
-    - name: Set permissions for a directory
-      run: chmod -R 777 /home/runner/work/nuxt3-zhifei/nuxt3-zhifei/public
-
-    - name: Debug information
-      run: |
-        echo "Current working directory: $(pwd)"
-        ls -l /home/runner/work/nuxt3-zhifei/nuxt3-zhifei/public
-
+      run: pnpm run Build
+      
     - name: Deploy to server
-      uses: appleboy/ssh-action@master
+      uses: appleboy/scp-action@v0.1.7
       with:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
-        
-        script: |
-          cd /www/wwwroot/nuxt-zhifei.pl-fe.cn
-          rm -rf *     
-          scp -r ./* .
-          pm2 restart your-app-name
+        source: /home/runner/work/nuxt3-zhifei/nuxt3-zhifei/*
+        target: /www/wwwroot/nuxt-zhifei.pl-fe.cn
