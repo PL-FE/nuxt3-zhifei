@@ -18,7 +18,7 @@ jobs:
       with:
         node-version: '20'
 
-    - name: Install dependencies
+    - name: Install dependencies pnpm
       run: npm install -g pnpm
 
     - name: Install dependencies
@@ -36,6 +36,6 @@ jobs:
         
         script: |
           cd /www/wwwroot/nuxt-zhifei.pl-fe.cn
-          rm -rf *
-          scp -r ./ .
+          rm -rf *     
+          scp -r /.output .
           pm2 restart your-app-name
