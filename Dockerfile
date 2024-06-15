@@ -8,7 +8,8 @@ WORKDIR /app
 COPY . .
 
 # 安装项目依赖
-RUN npm install
+RUN npm install -g pnpm
+RUN pnpm install
 
 # 暴露应用程序的端口
 EXPOSE 3000
