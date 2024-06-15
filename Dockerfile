@@ -15,4 +15,4 @@ RUN pnpm install
 EXPOSE 3000
 
 # 定义默认的运行命令
-CMD ["npm", "start"]
+CMD ["npm", "dev"]
