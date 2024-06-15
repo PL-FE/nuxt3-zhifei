@@ -1,15 +1,14 @@
-# use node 16 alpine image
-FROM node:20
+FROM node:18.14.2
 
-# create work directory in app folder
 WORKDIR /app
 
-# copy over all files to the work directory
-ADD . /app
+COPY package*.json ./
 
-# expose the host and port 3000 to the server
-ENV HOST 0.0.0.0
+RUN npm install
+
+COPY . .
+
 EXPOSE 3000
 
-# run the build project with node
-ENTRYPOINT ["node", ".server/index.mjs"]
+RUN npm run build
+CMD [ "npm", "run", "start" ]
